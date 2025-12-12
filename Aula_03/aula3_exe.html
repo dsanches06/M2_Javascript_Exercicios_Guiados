@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Prática - Dia 3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #4f46e5; --bg: #e0e7ff; --text: #1e1b4b; --card: #ffffff; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 40px; max-width: 950px; margin: 0 auto; line-height: 1.6; }
+        
+        h1 { color: var(--primary); text-align: center; font-size: 2.5rem; margin-bottom: 10px; }
+        .subtitle { text-align: center; margin-bottom: 40px; color: #4338ca; }
+        
+        .section-header { 
+            background: var(--primary); color: white; padding: 15px 25px; 
+            border-radius: 8px 8px 0 0; margin-top: 40px; font-weight: bold; font-size: 1.2rem;
+            display: flex; align-items: center; gap: 10px;
+        }
+        
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--primary); border: 2px solid var(--primary); border-radius: 0 0 8px 8px; overflow: hidden; }
+        
+        .task-col { background: var(--card); padding: 20px; }
+        .col-title { font-weight: bold; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; margin-bottom: 15px; border-bottom: 2px solid #e0e7ff; padding-bottom: 5px; }
+        
+        .task { display: flex; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; }
+        .task-num { 
+            background: #e0e7ff; color: var(--primary); font-weight: bold; 
+            width: 24px; height: 24px; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        code { background: #f3f4f6; color: #db2777; padding: 2px 5px; border-radius: 4px; font-family: monospace; border: 1px solid #e5e7eb; font-size: 0.9em; }
+        
+        .checkbox { margin-top: 5px; cursor: pointer; accent-color: var(--primary); }
+        
+        .warning { background: #fee2e2; color: #991b1b; padding: 10px; border-radius: 6px; margin-top: 10px; font-size: 0.9rem; border: 1px solid #fecaca; }
+    </style>
+</head>
+<body>
+
+    <h1><i class="fa-solid fa-dumbbell"></i> Ginásio HTML: Multimédia</h1>
+    <div class="subtitle">40 Exercícios Práticos para dominar o Conteúdo Web</div>
+
+    <p><strong>Instruções:</strong> Usa o ficheiro <code>index.html</code> no VS Code. Resolve as tarefas de "Observação" (para entenderes o que acontece) e depois as de "Implementação" (para construíres).</p>
+
+    <!-- SECÇÃO 1: IMAGENS -->
+    <div class="section-header"><i class="fa-regular fa-image"></i> 1. Imagens e Responsividade</div>
+    <div class="grid">
+        <div class="task-col">
+            <div class="col-title"><i class="fa-solid fa-eye"></i> Observação & Teste</div>
+            
+            <div class="task"><div class="task-num">1</div><div>Adiciona uma <code>img</code> com <code>src="batata.jpg"</code> (ficheiro que não existe). O que aparece no browser?</div></div>
+            <div class="task"><div class="task-num">2</div><div>Agora adiciona <code>alt="Uma batata frita"</code> à mesma imagem. O que mudou?</div></div>
+            <div class="task"><div class="task-num">3</div><div>Usa uma imagem real. Define <code>width="50"</code> e <code>height="500"</code>. A imagem ficou distorcida?</div></div>
+            <div class="task"><div class="task-num">4</div><div>Apaga o atributo <code>height</code>. O browser manteve a proporção correta apenas com o width?</div></div>
+            <div class="task"><div class="task-num">5</div><div>Coloca uma imagem muito grande (ex: 4000px). O scroll horizontal apareceu? (Isso é mau!).</div></div>
+        </div>
+        <div class="task-col">
+            <div class="col-title"><i class="fa-solid fa-code"></i> Implementação</div>
+            
+            <div class="task"><div class="task-num">6</div><div>Insere uma imagem externa (URL absoluto) do Unsplash (<code>https://source.unsplash.com/random</code>).</div></div>
+            <div class="task"><div class="task-num">7</div><div>Adiciona um atributo <code>title="Foto Surpresa"</code>. Passa o rato por cima da imagem.</div></div>
+            <div class="task"><div class="task-num">8</div><div>Cria uma estrutura <code>figure</code> com uma imagem dentro.</div></div>
+            <div class="task"><div class="task-num">9</div><div>Adiciona uma legenda visível usando <code>figcaption</code>: "Fotografia Artística".</div></div>
+            <div class="task"><div class="task-num">10</div><div>Usa a tag <code>picture</code> para mostrar uma imagem diferente se o ecrã for maior que 800px (Dica: <code>media="(min-width: 800px)"</code>).</div></div>
+        </div>
+    </div>
+
+    <!-- SECÇÃO 2: ÁUDIO E VÍDEO -->
+    <div class="section-header"><i class="fa-solid fa-film"></i> 2. Multimédia Nativa</div>
+    <div class="grid">
+        <div class="task-col">
+            <div class="col-title"><i class="fa-solid fa-eye"></i> Observação & Teste</div>
+            
+            <div class="task"><div class="task-num">11</div><div>Adiciona uma tag <code>video</code> com src mas SEM o atributo <code>controls</code>. Consegues dar play?</div></div>
+            <div class="task"><div class="task-num">12</div><div>Adiciona o atributo <code>autoplay</code> ao vídeo. Ele começou sozinho? (Provavelmente não, os browsers bloqueiam som automático).</div></div>
+            <div class="task"><div class="task-num">13</div><div>Adiciona <code>muted</code> junto com <code>autoplay</code>. Agora começou?</div></div>
+            <div class="task"><div class="task-num">14</div><div>Adiciona o atributo <code>loop</code>. O que acontece no fim do vídeo?</div></div>
+            <div class="task"><div class="task-num">15</div><div>Coloca texto dentro da tag video (<code>&lt;video&gt;Texto&lt;/video&gt;</code>). Ele aparece? (Só deve aparecer se o vídeo falhar).</div></div>
+        </div>
+        <div class="task-col">
+            <div class="col-title"><i class="fa-solid fa-code"></i> Implementação</div>
+            
+            <div class="task"><div class="task-num">16</div><div>Cria um leitor de áudio (<code>audio</code>) com controlos visíveis.</div></div>
+            <div class="task"><div class="task-num">17</div><div>Usa a tag <code>source</code> dentro do áudio para fornecer uma opção mp3.</div></div>
+            <div class="task"><div class="task-num">18</div><div>Cria um vídeo com largura de <code>400</code> e uma imagem de capa usando <code>poster="capa.jpg"</code>.</div></div>
+            <div class="task"><div class="task-num">19</div><div>Vai ao YouTube, clica em "Partilhar" > "Incorporar" (Embed) e cola o <code>iframe</code> no teu site.</div></div>
+            <div class="task"><div class="task-num">20</div><div>Vai ao Google Maps, procura a tua escola, "Partilhar" > "Incorporar mapa" e adiciona o mapa ao site.</div></div>
+        </div>
+    </div>
+
+    <!-- SECÇÃO 3: LINKS E LISTAS -->
+    <div class="section-header"><i class="fa-solid fa-link"></i> 3. Ligações e Listas</div>
+    <div class="grid">
+        <div class="task-col">
+            <div class="col-title"><i class="fa-solid fa-eye"></i> Observação & Teste</div>
+            
+            <div class="task"><div class="task-num">21</div><div>Cria um link com <code>href="#"</code>. Clica nele. O que acontece à barra de endereço?</div></div>
+            <div class="task"><div class="task-num">22</div><div>Cria um link sem o atributo <code>href</code>. Parece um link?</div></div>
+            <div class="task"><div class="task-num">23</div><div>Cria uma lista <code>ul</code> mas esquece-te de fechar um <code>li</code>. O browser "partiu"?</div></div>
+            <div class="task"><div class="task-num">24</div><div>Tenta colocar um <code>h1</code> DENTRO de um <code>ul</code> (mas fora de um li). O validador (ou a cor do VS Code) queixa-se?</div></div>
+            <div class="task"><div class="task-num">25</div><div>Cria um link para um ficheiro PDF local que não existe. O que acontece ao clicar? (Erro 404).</div></div>
+        </div>
+        <div class="task-col">
+            <div class="col-title"><i class="fa-solid fa-code"></i> Implementação</div>
+            
+            <div class="task"><div class="task-num">26</div><div>Cria um link de email: <code>mailto:teuemail@teste.com</code>.</div></div>
+            <div class="task"><div class="task-num">27</div><div>Cria um link de telefone: <code>tel:123456789</code> (Teste no telemóvel se conseguires).</div></div>
+            <div class="task"><div class="task-num">28</div><div>Cria uma lista aninhada: Uma lista de "Frutas" onde "Cítricos" tem uma sub-lista (Laranja, Limão).</div></div>
+            <div class="task"><div class="task-num">29</div><div>Cria uma Lista de Definição (<code>dl</code>) com 2 termos (<code>dt</code>) e as suas descrições (<code>dd</code>).</div></div>
+            <div class="task"><div class="task-num">30</div><div>Cria um link "Voltar ao topo" que aponte para <code>#top</code> (garante que tens um elemento com <code>id="top"</code> no início da página).</div></div>
+        </div>
+    </div>
+
+    <!-- SECÇÃO 4: TABELAS E SVG -->
+    <div class="section-header"><i class="fa-solid fa-table"></i> 4. Tabelas e Gráficos</div>
+    <div class="grid">
+        <div class="task-col">
+            <div class="col-title"><i class="fa-solid fa-eye"></i> Observação & Teste</div>
+            
+            <div class="task"><div class="task-num">31</div><div>Cria uma tabela sem <code>border="1"</code> (ou CSS). Consegues ver as linhas?</div></div>
+            <div class="task"><div class="task-num">32</div><div>Usa <code>th</code> na primeira linha e <code>td</code> na segunda. Qual a diferença visual (negrito/centro)?</div></div>
+            <div class="task"><div class="task-num">33</div><div>Cria uma tabela sem <code>tr</code> (linhas). Funciona? (Não devia!).</div></div>
+            <div class="task"><div class="task-num">34</div><div>Coloca uma imagem dentro de uma célula <code>td</code>. Funciona?</div></div>
+            <div class="task"><div class="task-num">35</div><div>Copia um código SVG simples da internet e cola no HTML. É editável como texto?</div></div>
+        </div>
+        <div class="task-col">
+            <div class="col-title"><i class="fa-solid fa-code"></i> Implementação</div>
+            
+            <div class="task"><div class="task-num">36</div><div>Cria uma tabela com <code>thead</code>, <code>tbody</code> e <code>tfoot</code>.</div></div>
+            <div class="task"><div class="task-num">37</div><div>Adiciona um <code>caption</code> à tabela: "Horário Escolar".</div></div>
+            <div class="task"><div class="task-num">38</div><div>Faz uma célula ocupar 2 colunas usando <code>colspan="2"</code>.</div></div>
+            <div class="task"><div class="task-num">39</div><div><strong>Acessibilidade:</strong> Adiciona <code>scope="col"</code> aos cabeçalhos da tua tabela.</div></div>
+            <div class="task"><div class="task-num">40</div><div>Desenha um círculo vermelho usando a tag <code>&lt;svg&gt;</code> e a tag <code>&lt;circle&gt;</code>.</div></div>
+        </div>
+    </div>
+
+</body>
+</html>
