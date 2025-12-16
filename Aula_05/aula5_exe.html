@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ginásio CSS: 50 Exercícios</title>
+   <link rel="stylesheet" href="style.css">
+    
+    <!-- Estilos apenas para a Ficha (Ignorar) -->
+    <style>
+        body { font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+        .instructions { background: #fff7ed; border: 2px solid #f97316; padding: 20px; border-radius: 8px; margin-bottom: 40px; }
+        .level-title { background: #e0f2fe; padding: 10px; font-weight: bold; margin-top: 30px; border-left: 5px solid #0284c7; }
+        .task { margin: 10px 0; border-bottom: 1px dashed #ccc; padding-bottom: 5px; }
+        code { background: #f1f5f9; color: #d63384; padding: 2px 5px; border-radius: 4px; font-family: monospace; }
+        /* Classes para teste */
+        .caixa { background: #ddd; padding: 10px; margin: 10px 0; }
+        .pai { background: #e2e8f0; padding: 20px; border: 1px solid #94a3b8; }
+        .filho { background: #3b82f6; color: white; padding: 10px; margin: 5px; }
+        .absoluto-container { position: relative; height: 100px; background: #fef08a; border: 1px solid #eab308; }
+        .item-abs { width: 50px; height: 50px; background: #ef4444; color: white; display: flex; align-items: center; justify-content: center; }
+    </style>
+</head>
+<body>
+
+    <div class="instructions">
+        <h1>🏋️ Ginásio CSS</h1>
+        <p><strong>Instruções:</strong></p>
+        <ol>
+            <li>Cria um ficheiro <code>style.css</code> na mesma pasta e liga-o a este HTML (ou usa a tag <code>&lt;style&gt;</code> acima).</li>
+            <li>Resolve as tarefas abaixo escrevendo regras CSS.</li>
+            <li>Usa o <strong>Inspecionar Elemento</strong> (F12) para veres as classes e IDs dos elementos.</li>
+        </ol>
+    </div>
+
+    <!-- NÍVEL 1: SINTAXE E TEXTO -->
+    <div class="level-title">Nível 1: Básico e Texto (1-10)</div>
+    
+    <h1 id="titulo-principal">Título Principal</h1>
+    <p>Um parágrafo de texto normal.</p>
+    <p class="destaque">Um parágrafo com a classe 'destaque'.</p>
+    <p id="unico">Um parágrafo com o ID 'unico'.</p>
+    
+    <div class="task">1. Muda a cor do <code>h1</code> para azul (blue).</div>
+    <div class="task">2. Define o tamanho da fonte do <code>h1</code> para 40px.</div>
+    <div class="task">3. Coloca todo o texto dos parágrafos (<code>p</code>) a cinzento (#666).</div>
+    <div class="task">4. Coloca o parágrafo com classe <code>.destaque</code> com fundo amarelo e texto negrito.</div>
+    <div class="task">5. Coloca o parágrafo com ID <code>#unico</code> com cor vermelha e borda preta de 1px.</div>
+    <div class="task">6. Define a fonte de todo o <code>body</code> para "Arial".</div>
+    <div class="task">7. Remove o sublinhado do link abaixo: <a href="#" class="link-simples">Link sem sublinhado</a>.</div>
+    <div class="task">8. Transforma o texto do <code>h1</code> em MAIÚSCULAS usando <code>text-transform</code>.</div>
+    <div class="task">9. Alinha o texto do <code>h1</code> ao centro (<code>text-align</code>).</div>
+    <div class="task">10. Adiciona uma sombra suave ao texto da classe <code>.destaque</code> (<code>text-shadow: 1px 1px 2px gray</code>).</div>
+
+    <!-- NÍVEL 2: BOX MODEL -->
+    <div class="level-title">Nível 2: Box Model (11-20)</div>
+
+    <div class="caixa box-1">Caixa 1</div>
+    <div class="caixa box-2">Caixa 2</div>
+    <div class="caixa box-3">Caixa 3</div>
+
+    <div class="task">11. Na <code>.box-1</code>, adiciona um <code>padding</code> de 20px em todos os lados.</div>
+    <div class="task">12. Na <code>.box-1</code>, adiciona uma <code>border</code> vermelha sólida de 5px.</div>
+    <div class="task">13. Na <code>.box-1</code>, adiciona uma <code>margin-bottom</code> de 50px.</div>
+    <div class="task">14. Na <code>.box-2</code>, define uma largura (<code>width</code>) de 50%.</div>
+    <div class="task">15. Na <code>.box-2</code>, define uma altura (<code>height</code>) de 100px.</div>
+    <div class="task">16. Arredonda os cantos da <code>.box-2</code> com <code>border-radius: 10px</code>.</div>
+    <div class="task">17. Aplica <code>box-sizing: border-box</code> a todas as caixas.</div>
+    <div class="task">18. Na <code>.box-3</code>, coloca apenas a borda inferior (<code>border-bottom</code>) azul.</div>
+    <div class="task">19. Centra a <code>.box-2</code> horizontalmente usando <code>margin: 0 auto</code> (requer width definido).</div>
+    <div class="task">20. Tira a margem padrão do <code>body</code> (Reset simples).</div>
+
+    <!-- NÍVEL 3: COMBINADORES E HIERARQUIA -->
+    <div class="level-title">Nível 3: Seletores Avançados (21-30)</div>
+
+    <div class="container-lista">
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li class="especial">Item 3 (Especial)</li>
+            <li>Item 4 <a href="#">Link na lista</a></li>
+        </ul>
+        <p>Parágrafo fora da lista.</p>
+        <p>Outro parágrafo.</p>
+    </div>
+
+    <div class="task">21. Seleciona todos os <code>li</code> que estão dentro de <code>.container-lista</code> (Espaço). Pinta de verde.</div>
+    <div class="task">22. Seleciona apenas os <code>li</code> que são filhos diretos de <code>ul</code> (Sinal >).</div>
+    <div class="task">23. Seleciona o parágrafo que vem imediatamente a seguir à <code>ul</code> (Sinal +). Pinta de roxo.</div>
+    <div class="task">24. Seleciona todos os parágrafos que são irmãos da <code>ul</code> (Sinal ~). Pinta de laranja.</div>
+    <div class="task">25. Seleciona o elemento com a classe <code>.especial</code> E que seja um <code>li</code> (<code>li.especial</code>).</div>
+    <div class="task">26. Seleciona o link que está dentro de um <code>li</code>. Tira-lhe a cor azul.</div>
+    <div class="task">27. Usa o seletor universal <code>*</code> para mudar a fonte de tudo para 'Courier New' (apenas teste).</div>
+    <div class="task">28. Agrupa seletores: Coloca <code>h1</code> e <code>.box-1</code> com opacidade 0.8.</div>
+    <div class="task">29. Seleciona o primeiro filho da lista (<code>:first-child</code>). Pinta de vermelho.</div>
+    <div class="task">30. Seleciona os itens pares da lista (<code>:nth-child(even)</code>). Pinta o fundo de cinza claro.</div>
+
+    <!-- NÍVEL 4: ESTADOS E CORES -->
+    <div class="level-title">Nível 4: Pseudo-classes e Cores (31-40)</div>
+
+    <button class="btn-teste">Passa o Rato Aqui</button>
+    <input type="text" class="input-teste" placeholder="Clica aqui">
+    <a href="#" class="link-visitado">Link Teste</a>
+
+    <div class="task">31. Quando passares o rato no botão (<code>:hover</code>), muda a cor de fundo para preto e texto branco.</div>
+    <div class="task">32. Quando clicares no botão (<code>:active</code>), muda o fundo para verde.</div>
+    <div class="task">33. Quando o input tiver o foco (<code>:focus</code>), muda a cor da borda para azul.</div>
+    <div class="task">34. Usa uma cor <code>rgb()</code> para o fundo da página (ex: rgb(240, 240, 255)).</div>
+    <div class="task">35. Usa uma cor <code>rgba()</code> com transparência num título.</div>
+    <div class="task">36. Usa uma cor Hexadecimal <code>#...</code> para pintar o texto do botão.</div>
+    <div class="task">37. Remove o contorno azul padrão do input no foco (<code>outline: none</code>).</div>
+    <div class="task">38. Muda o cursor para "pointer" (mãozinha) ao passar no botão.</div>
+    <div class="task">39. Visita o link. Cria um estilo para <code>:visited</code> (cor roxa).</div>
+    <div class="task">40. Usa <code>opacity: 0.5</code> num elemento qualquer.</div>
+
+    <!-- NÍVEL 5: POSICIONAMENTO E VISIBILIDADE -->
+    <div class="level-title">Nível 5: Posição e Layout (41-50)</div>
+
+    <div class="absoluto-container">
+        <div class="item-abs box-abs">A</div>
+        <div class="item-abs box-static">B</div>
+    </div>
+    <div class="escondido">Estou escondido?</div>
+    <div class="invisivel">Estou invisível?</div>
+
+    <div class="task">41. Coloca a <code>.box-abs</code> com <code>position: absolute</code>.</div>
+    <div class="task">42. Move a <code>.box-abs</code> para <code>top: 0</code> e <code>right: 0</code> (Canto superior direito do pai).</div>
+    <div class="task">43. Dá à <code>.box-static</code> uma <code>position: relative</code> e move-a <code>top: 20px</code>.</div>
+    <div class="task">44. Faz com que a <code>.box-abs</code> fique por cima da outra usando <code>z-index: 10</code>.</div>
+    <div class="task">45. Cria um elemento (ou usa o h1) com <code>position: sticky; top: 0;</code> para colar no topo ao fazer scroll.</div>
+    <div class="task">46. Usa <code>display: none</code> na classe <code>.escondido</code>. O espaço desapareceu?</div>
+    <div class="task">47. Usa <code>visibility: hidden</code> na classe <code>.invisivel</code>. O espaço manteve-se?</div>
+    <div class="task">48. Transforma um <code>span</code> (inline) num bloco com <code>display: block</code>.</div>
+    <div class="task">49. Transforma um <code>li</code> (block) num inline com <code>display: inline</code>.</div>
+    <div class="task">50. Usa <code>!important</code> numa regra de cor para sobrepor todas as outras (Só para testar o perigo!).</div>
+
+</body>
+</html>

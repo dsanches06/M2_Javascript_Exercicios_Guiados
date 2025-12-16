@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <title>Ginásio Flexbox: O Contentor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #6366f1; --bg: #eef2ff; --text: #312e81; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 40px; max-width: 1000px; margin: 0 auto; }
+        
+        h1 { text-align: center; color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 10px; }
+        .intro { background: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; border-left: 5px solid var(--primary); }
+        
+        /* Estilos para os Exercícios Visuais */
+        .container {
+            background-color: #c7d2fe;
+            border: 2px dashed #4f46e5;
+            padding: 10px;
+            margin: 10px 0 20px 0;
+            border-radius: 8px;
+            min-height: 100px;
+            /* O ALUNO VAI ESCREVER CSS PARA ESTA CLASSE .container NO VS CODE */
+        }
+
+        .item {
+            background-color: #4f46e5;
+            color: white;
+            padding: 15px;
+            margin: 5px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+            width: 60px; /* Largura fixa para testes */
+            height: 60px; /* Altura fixa para testes */
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .item:nth-child(2) { background-color: #db2777; } /* Rosa */
+        .item:nth-child(3) { background-color: #16a34a; } /* Verde */
+        
+        .task-group { background: white; padding: 20px; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .group-title { font-size: 1.3rem; font-weight: bold; color: var(--primary); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        
+        .task { display: flex; gap: 10px; margin-bottom: 8px; align-items: baseline; font-size: 0.95rem; border-bottom: 1px solid #e0e7ff; padding-bottom: 5px; }
+        .num { font-weight: bold; color: var(--primary); min-width: 25px; }
+        code { background: #e0e7ff; color: #312e81; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-weight: bold; }
+        .checkbox { cursor: pointer; transform: scale(1.2); }
+    </style>
+</head>
+<body>
+
+    <h1><i class="fa-solid fa-boxes-stacked"></i> 50 Exercícios Flexbox (Pai)</h1>
+    
+    <div class="intro">
+        <p><strong>Instruções:</strong></p>
+        <ol>
+            <li>Cria um ficheiro <code>flex.html</code> e liga um <code>style.css</code>.</li>
+            <li>Cria um <code>&lt;div class="container"&gt;</code> com 3 filhos <code>&lt;div class="item"&gt;</code> dentro.</li>
+            <li>Resolve os exercícios aplicando CSS à classe <code>.container</code>.</li>
+            <li>Vai limpando o CSS entre exercícios para não misturar regras!</li>
+        </ol>
+    </div>
+
+    <!-- EXEMPLO VISUAL -->
+    <div class="container" style="display: flex; gap: 10px;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <p style="text-align: center; font-size: 0.9rem; margin-top: -15px;">(Exemplo do objetivo visual)</p>
+
+    <!-- NÍVEL 1: ATIVAÇÃO -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-power-off"></i> Nível 1: Ativação (1-5)</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">1</span> Ativa o Flexbox no pai. (Os itens devem ficar lado a lado).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">2</span> Define o display como <code>inline-flex</code>. O que acontece à largura do contentor cinzento? (Encolhe!).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">3</span> Volta a pôr <code>display: flex</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">4</span> Adiciona uma altura fixa ao contentor: <code>height: 300px</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">5</span> Retira a altura fixa dos itens (se tiverem). O que acontece? (Eles esticam para encher os 300px do pai).</div>
+    </div>
+
+    <!-- NÍVEL 2: DIREÇÃO (Eixo Principal) -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-arrow-right"></i> Nível 2: Flex Direction (6-15)</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">6</span> Coloca os itens em coluna (um debaixo do outro).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">7</span> Coloca os itens em linha (padrão).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">8</span> Inverte a ordem horizontalmente: Item 3 primeiro (<code>row-reverse</code>).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">9</span> Inverte a ordem verticalmente (<code>column-reverse</code>).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">10</span> Qual é o <strong>Eixo Principal</strong> quando usas <code>row</code>? (Horizontal).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">11</span> Qual é o <strong>Eixo Principal</strong> quando usas <code>column</code>? (Vertical).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">12</span> Se usares <code>row-reverse</code>, o alinhamento começa na esquerda ou direita? (Direita).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">13</span> Com <code>column</code>, os itens esticam na largura ou altura? (Largura).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">14</span> Cria um layout clássico de telemóvel: Itens em coluna.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">15</span> Cria um layout clássico de PC: Itens em linha.</div>
+    </div>
+
+    <!-- NÍVEL 3: ALINHAMENTO PRINCIPAL (JUSTIFY) -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-left-right"></i> Nível 3: Justify Content (16-25)</div>
+        <p style="font-size: 0.9rem; margin-bottom: 10px;"><em>Nota: Mantém <code>flex-direction: row</code>.</em></p>
+        
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">16</span> Alinha os itens à direita (Fim do eixo).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">17</span> Centra os itens horizontalmente.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">18</span> Espalha os itens com o máximo de espaço entre eles (primeiro e último colados às bordas).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">19</span> Espalha os itens com espaço igual à volta de cada um (<code>space-around</code>).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">20</span> Espalha os itens com espaço visualmente igual entre todos (<code>space-evenly</code>).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">21</span> Muda para <code>flex-direction: column</code> (e dá altura ao pai). Usa <code>justify-content: center</code>. O que acontece? (Centra verticalmente!).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">22</span> Ainda em coluna, manda os itens para o fundo (<code>flex-end</code>).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">23</span> Volta para <code>row</code>. Agrupa tudo à esquerda (padrão).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">24</span> Tenta usar <code>justify-content: right</code> (Funciona, mas o correto é <code>flex-end</code>).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">25</span> Cenário Real: Tens um logótipo à esquerda e menu à direita. Que justify usas? (<code>space-between</code>).</div>
+    </div>
+
+    <!-- NÍVEL 4: ALINHAMENTO CRUZADO (ALIGN) -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-up-down"></i> Nível 4: Align Items (26-35)</div>
+        <p style="font-size: 0.9rem; margin-bottom: 10px;"><em>Nota: O contentor PRECISA de ter altura (ex: 200px) para isto ser visível.</em></p>
+
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">26</span> Alinha os itens no topo (Início do eixo cruzado).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">27</span> Alinha os itens no fundo (<code>flex-end</code>).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">28</span> Centra os itens verticalmente.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">29</span> Faz com que os itens estiquem até à altura total do pai (<code>stretch</code> - apaga a altura fixa dos itens se tiverem).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">30</span> Alinha pela linha de base do texto (<code>baseline</code>). (Muda o tamanho da fonte do item 2 para veres o efeito).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">31</span> Muda para <code>flex-direction: column</code>. Agora o <code>align-items</code> mexe em que eixo? (Horizontal!).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">32</span> Em coluna, alinha os itens à direita (<code>flex-end</code>).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">33</span> Em coluna, alinha os itens ao centro.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">34</span> Em coluna, faz com que ocupem a largura toda (<code>stretch</code> e remove largura fixa dos itens).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">35</span> O Santo Graal: Centra um item perfeitamente no meio do ecrã (Usa justify center E align center).</div>
+    </div>
+
+    <!-- NÍVEL 5: WRAP E GAP -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-layer-group"></i> Nível 5: Wrap e Espaçamento (36-45)</div>
+        <p style="font-size: 0.9rem; margin-bottom: 10px;"><em>Adiciona mais itens ao HTML (ex: 10 itens) para estes testes.</em></p>
+
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">36</span> Adiciona <code>gap: 20px</code>. Vês o espaço entre eles?</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">37</span> Tenta usar margens nos itens em vez de gap. Dá mais trabalho? (Sim!).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">38</span> Encolhe a janela do browser. Os itens ficam esmagados ou saem para fora? (Padrão: <code>nowrap</code>).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">39</span> Permite que os itens quebrem para a linha seguinte: <code>flex-wrap: wrap</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">40</span> Faz com que quebrem linha, mas de baixo para cima (<code>wrap-reverse</code>).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">41</span> Com o wrap ativo, usa <code>align-content: center</code>. Onde fica o bloco de linhas? (No centro vertical do pai).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">42</span> Espalha as linhas verticalmente com <code>align-content: space-between</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">43</span> Usa o atalho <code>flex-flow: row wrap</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">44</span> Define <code>column-gap: 50px</code> e <code>row-gap: 10px</code> separadamente.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">45</span> Cria uma grelha de cartões responsiva apenas com <code>flex-wrap: wrap</code> e larguras fixas nos itens.</div>
+    </div>
+
+    <!-- NÍVEL 6: DESAFIOS FINAIS -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-trophy"></i> Nível 6: Desafios de Layout (46-50)</div>
+        
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">46</span> <strong>Navbar:</strong> Cria um menu com logótipo à esquerda e links à direita (Dica: <code>justify-content: space-between</code>).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">47</span> <strong>Hero Section:</strong> Texto à esquerda, Imagem à direita, centrados verticalmente.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">48</span> <strong>Sidebar:</strong> Layout com Menu Lateral (20%) e Conteúdo (80%) lado a lado.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">49</span> <strong>Sticky Footer:</strong> Garante que o rodapé fica no fundo (Dica: <code>flex-direction: column</code> no body e <code>margin-top: auto</code> no footer - truque avançado!).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">50</span> <strong>Galeria:</strong> Cria uma galeria de imagens que se ajusta automaticamente e centra a última linha se sobrar (justify-center).</div>
+    </div>
+
+</body>
+</html>
