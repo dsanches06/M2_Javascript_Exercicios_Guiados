@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <title>Ginásio Flexbox: Os Itens</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #7c3aed; --bg: #f5f3ff; --text: #2e1065; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 40px; max-width: 1000px; margin: 0 auto; }
+        
+        h1 { text-align: center; color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 10px; }
+        .intro { background: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; border-left: 5px solid var(--primary); }
+        
+        /* O Contentor de Teste */
+        .container {
+            display: flex; /* O pai já é flex */
+            background-color: #ddd6fe;
+            border: 2px dashed #7c3aed;
+            padding: 10px;
+            margin: 10px 0 20px 0;
+            border-radius: 8px;
+            min-height: 150px;
+            gap: 10px;
+        }
+
+        .item {
+            background-color: #7c3aed;
+            color: white;
+            padding: 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+            /* width: 100px;  <-- Descomenta para testar tamanhos fixos */
+        }
+
+        /* Classes Específicas para os exercícios */
+        .item-1 { background-color: #7c3aed; }
+        .item-2 { background-color: #db2777; } /* Rosa */
+        .item-3 { background-color: #16a34a; } /* Verde */
+        
+        .task-group { background: white; padding: 20px; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .group-title { font-size: 1.3rem; font-weight: bold; color: var(--primary); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        
+        .task { display: flex; gap: 10px; margin-bottom: 8px; align-items: baseline; font-size: 0.95rem; border-bottom: 1px solid #ede9fe; padding-bottom: 5px; }
+        .num { font-weight: bold; color: var(--primary); min-width: 25px; }
+        code { background: #ede9fe; color: #4c1d95; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-weight: bold; }
+        .checkbox { cursor: pointer; transform: scale(1.2); }
+    </style>
+</head>
+<body>
+
+    <h1><i class="fa-solid fa-child-reaching"></i> 40 Exercícios Flexbox (Filhos)</h1>
+    
+    <div class="intro">
+        <p><strong>Instruções:</strong></p>
+        <ol>
+            <li>Cria um ficheiro <code>filhos.html</code> e liga um <code>style.css</code>.</li>
+            <li>Cria um contentor com <code>display: flex</code> e 3 itens dentro (com classes <code>.item-1</code>, <code>.item-2</code>, <code>.item-3</code>).</li>
+            <li>Resolve os exercícios aplicando CSS <strong>nos itens individuais</strong>, não no pai!</li>
+        </ol>
+    </div>
+
+    <!-- EXEMPLO VISUAL -->
+    <div class="container">
+        <div class="item item-1">1</div>
+        <div class="item item-2">2</div>
+        <div class="item item-3">3</div>
+    </div>
+
+    <!-- NÍVEL 1: FLEX GROW -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-maximize"></i> Nível 1: Flex Grow (Crescer) (1-10)</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">1</span> Dá uma largura fixa de <code>50px</code> a todos os itens. Sobra espaço à direita?</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">2</span> Aplica <code>flex-grow: 1</code> a todos os itens. O que acontece? (Ocupam tudo igualmente).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">3</span> Retira o grow dos outros e aplica <code>flex-grow: 1</code> apenas ao Item 2 (Rosa). Quem cresce?</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">4</span> Dá <code>flex-grow: 1</code> ao Item 1 e Item 3. O Item 2 mantém o tamanho fixo?</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">5</span> Proporções: Item 1 com <code>flex-grow: 1</code>, Item 2 com <code>flex-grow: 2</code>. O Rosa é o dobro do Roxo?</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">6</span> Dá <code>flex-grow: 100</code> ao Item 3. Ele "esmaga" os outros?</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">7</span> Tenta usar <code>flex-grow: 0</code>. É o valor padrão? (Sim).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">8</span> Mistura larguras: Item 1 com <code>width: 200px</code>, Item 2 com <code>flex-grow: 1</code>. O que acontece?</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">9</span> Usa o atalho <code>flex: 1</code> em todos. (Equivale a grow:1, shrink:1, basis:0).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">10</span> Usa <code>flex: auto</code> em todos. (Crescem baseados no tamanho do conteúdo).</div>
+    </div>
+
+    <!-- NÍVEL 2: FLEX SHRINK & BASIS -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-minimize"></i> Nível 2: Shrink e Basis (11-20)</div>
+        <p style="font-size: 0.9rem; margin-bottom: 10px;"><em>Nota: Para testar o shrink, define larguras grandes (ex: 400px) nos itens para que não caibam no pai.</em></p>
+        
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">11</span> Define <code>width: 100%</code> em todos os itens. Eles saem para fora ou encolhem? (Encolhem, padrão shrink: 1).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">12</span> No Item 2, define <code>flex-shrink: 0</code>. Ele recusa-se a encolher?</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">13</span> Com o Item 2 rígido, quem encolhe para dar espaço? (Os outros com shrink: 1).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">14</span> Dá <code>flex-shrink: 3</code> ao Item 3. Ele encolhe mais rápido que os outros?</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">15</span> Limpa os estilos. Define <code>flex-basis: 200px</code> no Item 1. É igual a width?</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">16</span> Muda a direção do pai para <code>column</code>. O <code>flex-basis</code> agora afeta a altura ou largura? (Altura).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">17</span> Volta para row. Define <code>flex: 0 0 100px</code> (Não cresce, não encolhe, base 100px). Tamanho fixo e rígido.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">18</span> Define <code>flex: 1 1 auto</code>. Comportamento padrão responsivo.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">19</span> Cria um layout "Sidebar Fixa + Conteúdo Fluido": Item 1 (300px fixo), Item 2 (o resto).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">20</span> Teste de Texto: Põe muito texto no Item 2. Ele empurra os outros?</div>
+    </div>
+
+    <!-- NÍVEL 3: ORDER E ALIGN-SELF -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-sort"></i> Nível 3: Ordem e Posição (21-30)</div>
+        
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">21</span> Define <code>order: 1</code> no Item 1. Ele vai para onde? (Fim, pois os outros são 0).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">22</span> Define <code>order: -1</code> no Item 3. Ele vai para o início?</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">23</span> Troca visualmente a ordem para: 3, 1, 2 usando apenas CSS.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">24</span> No pai, define <code>align-items: flex-start</code> (tudo no topo).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">25</span> No Item 2, usa <code>align-self: flex-end</code>. Ele foi para o fundo sozinho?</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">26</span> No Item 3, usa <code>align-self: center</code>. Ficou no meio?</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">27</span> No Item 1, usa <code>align-self: stretch</code> e tira a altura. Esticou?</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">28</span> Experimenta <code>margin-left: auto</code> no Item 3. O que acontece? (Empurra para a direita total!).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">29</span> Experimenta <code>margin: auto</code> num item único dentro de um flex container. Fica centrado perfeitamente?</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">30</span> Cenário Navbar: Logótipo (Item 1), Links (Item 2), Login (Item 3). Usa margens automáticas para afastar o Login para a direita.</div>
+    </div>
+
+    <!-- NÍVEL 4: CENÁRIOS REAIS -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-desktop"></i> Nível 4: Cenários Reais (31-40)</div>
+        
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">31</span> <strong>Galeria:</strong> 3 Imagens lado a lado que mantêm a proporção (<code>flex: 1</code>).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">32</span> <strong>Cartão de Produto:</strong> Imagem em cima, Texto no meio, Botão em baixo. O texto deve crescer para empurrar o botão para o fundo (<code>flex-grow: 1</code> no texto).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">33</span> <strong>Rodapé Fixo:</strong> Num layout de página inteira (Body flex column), faz o <code>main</code> crescer para empurrar o footer para baixo.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">34</span> <strong>Input Group:</strong> Um input de texto e um botão "Pesquisar" colados. O input deve ocupar todo o espaço disponível.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">35</span> <strong>Ordem Mobile:</strong> Em desktop (width > 600px) Imagem-Texto. Em mobile, queres Texto-Imagem. Usa Media Queries e <code>order</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">36</span> <strong>Menu:</strong> 4 itens de menu. O primeiro e o último devem estar encostados às bordas, os do meio centrados. (Dica: Margens auto).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">37</span> <strong>Lista de Preços:</strong> 3 colunas. A do meio (Premium) deve ser ligeiramente maior que as outras (<code>flex-grow</code> ou scale).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">38</span> <strong>Scroll Lateral:</strong> Cria um contentor com largura fixa, <code>overflow-x: scroll</code> e itens com <code>flex-shrink: 0</code>. Tens um carrossel!</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">39</span> <strong>Centralização Absoluta:</strong> Centra um ícone dentro de um botão redondo usando flexbox.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">40</span> <strong>Layout Santo Graal (Final):</strong> Header, Main+Sidebar, Footer. Sidebar fixa, Main cresce, Footer no fundo.</div>
+    </div>
+
+</body>
+</html>

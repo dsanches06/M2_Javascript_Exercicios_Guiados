@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <title>Ginásio CSS Grid: 50 Exercícios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #0284c7; --bg: #f0f9ff; --text: #0c4a6e; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 40px; max-width: 1000px; margin: 0 auto; }
+        
+        h1 { text-align: center; color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 10px; }
+        .intro { background: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; border-left: 5px solid var(--primary); }
+        
+        /* O Contentor de Teste */
+        .grid-container {
+            /* O ALUNO ESCREVE CSS AQUI */
+            background-color: #e0f2fe;
+            border: 2px dashed #0284c7;
+            padding: 10px;
+            margin: 10px 0 20px 0;
+            border-radius: 8px;
+            min-height: 200px;
+            /* gap: 10px; <--- Útil mais à frente */
+        }
+
+        .item {
+            background-color: #0ea5e9;
+            color: white;
+            padding: 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid white;
+            font-size: 1.2rem;
+        }
+
+        .item-1 { background-color: #0369a1; } /* Azul Escuro */
+        .item-2 { background-color: #db2777; } /* Rosa */
+        .item-3 { background-color: #16a34a; } /* Verde */
+        .item-4 { background-color: #eab308; } /* Amarelo */
+        .item-5 { background-color: #9333ea; } /* Roxo */
+        .item-6 { background-color: #f97316; } /* Laranja */
+        
+        .task-group { background: white; padding: 20px; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .group-title { font-size: 1.3rem; font-weight: bold; color: var(--primary); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        
+        .task { display: flex; gap: 10px; margin-bottom: 8px; align-items: baseline; font-size: 0.95rem; border-bottom: 1px solid #bae6fd; padding-bottom: 5px; }
+        .num { font-weight: bold; color: var(--primary); min-width: 25px; }
+        code { background: #e0f2fe; color: #0284c7; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-weight: bold; }
+        .checkbox { cursor: pointer; transform: scale(1.2); accent-color: var(--primary); }
+    </style>
+</head>
+<body>
+
+    <h1><i class="fa-solid fa-border-all"></i> 50 Exercícios CSS Grid</h1>
+    
+    <div class="intro">
+        <p><strong>Instruções:</strong></p>
+        <ol>
+            <li>Cria um ficheiro <code>grid.html</code> e liga um <code>style.css</code>.</li>
+            <li>Cria um <code>.grid-container</code> com 6 filhos <code>.item</code> dentro (numerados 1 a 6).</li>
+            <li>Resolve os exercícios aplicando CSS (maioritariamente no Pai).</li>
+            <li><strong>Importante:</strong> Limpa o CSS entre cada grupo de exercícios!</li>
+        </ol>
+    </div>
+
+    <!-- EXEMPLO VISUAL -->
+    <div class="grid-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+        <div class="item item-1">1</div>
+        <div class="item item-2">2</div>
+        <div class="item item-3">3</div>
+        <div class="item item-4">4</div>
+        <div class="item item-5">5</div>
+        <div class="item item-6">6</div>
+    </div>
+    <p style="text-align: center; font-size: 0.9rem;">(Visualização: Grelha 3x2)</p>
+
+    <!-- NÍVEL 1: COLUNAS BÁSICAS -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-columns"></i> Nível 1: Colunas e Linhas (1-10)</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">1</span> Ativa o Grid no contentor: <code>display: grid</code>. (Nada muda visualmente, certo?).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">2</span> Cria 2 colunas de 200px: <code>grid-template-columns: 200px 200px</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">3</span> Cria 3 colunas usando percentagem: <code>33% 33% 33%</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">4</span> Usa a unidade mágica <code>fr</code> para 2 colunas iguais: <code>1fr 1fr</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">5</span> Cria colunas assimétricas: A 1ª com <code>1fr</code> e a 2ª com <code>2fr</code> (o dobro).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">6</span> Mistura unidades: 1ª coluna <code>100px</code>, 2ª coluna <code>1fr</code> (resto do espaço).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">7</span> Define a altura das linhas explicitamente: <code>grid-template-rows: 100px 200px</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">8</span> Usa a função <code>repeat()</code> para criar 4 colunas de 1fr.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">9</span> Usa repeat para criar 3 colunas de 150px fixos.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">10</span> Adiciona espaço entre as células: <code>gap: 20px</code>.</div>
+    </div>
+
+    <!-- NÍVEL 2: POSICIONAMENTO (LINHAS) -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-arrows-up-down-left-right"></i> Nível 2: Posicionar Itens (11-20)</div>
+        <p style="font-size: 0.9rem;"><em>Define uma grelha base de 3 colunas (1fr 1fr 1fr) antes de começar.</em></p>
+        
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">11</span> Faz o <strong>Item 1</strong> ocupar 2 colunas: <code>grid-column: span 2</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">12</span> Faz o <strong>Item 1</strong> ocupar da linha 1 à linha 4: <code>grid-column: 1 / 4</code> (Toda a largura).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">13</span> Faz o <strong>Item 2</strong> ocupar 2 linhas de altura: <code>grid-row: span 2</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">14</span> Move o <strong>Item 6</strong> para a primeira coluna da primeira linha (sobrepõe-se ao 1?): <code>grid-column: 1; grid-row: 1;</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">15</span> Faz o <strong>Item 3</strong> começar na coluna 2 e acabar na 4.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">16</span> Usa o atalho <code>grid-area: 1 / 1 / 3 / 3</code> no Item 1 (RowStart / ColStart / RowEnd / ColEnd). Ocupa um quadrado 2x2.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">17</span> Faz um item ocupar toda a largura usando <code>grid-column: 1 / -1</code> (-1 é a última linha).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">18</span> Cria um layout "Sidebar": Colunas <code>200px 1fr</code>. Item 1 (Sidebar) ocupa <code>grid-row: span 2</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">19</span> Força o Item 5 a ficar na última linha explicitamente.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">20</span> Sobreposição: Coloca Item 1 em <code>1/2</code> e Item 2 em <code>1/2</code>. Usa <code>z-index</code> e <code>opacity</code> para veres ambos.</div>
+    </div>
+
+    <!-- NÍVEL 3: GRID AREAS (NOMES) -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-tag"></i> Nível 3: Grid Template Areas (21-30)</div>
+        
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">21</span> Dá nomes aos itens: <code>.item-1 { grid-area: cabecalho; }</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">22</span> Define no pai: <code>grid-template-areas: "cabecalho cabecalho"</code>. O item 1 ocupa tudo?</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">23</span> Cria um layout clássico: <code>"header header" "sidebar main" "footer footer"</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">24</span> Atribui o Item 1 ao header, Item 2 à sidebar, Item 3 ao main, Item 4 ao footer.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">25</span> Deixa um espaço vazio na grelha usando um ponto <code>.</code> na string de áreas (ex: <code>"header ."</code>).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">26</span> Muda o layout apenas alterando a string no pai para: <code>"header sidebar" "footer sidebar"</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">27</span> Tenta criar uma área em forma de "L" (Não dá! Áreas têm de ser rectangulares).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">28</span> Adiciona <code>grid-template-rows: 100px 1fr 50px</code> para controlar a altura das áreas.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">29</span> Usa Media Query: Em mobile 1 coluna de áreas, em desktop 3 colunas de áreas.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">30</span> Remove os nomes dos itens e vê o layout a "partir-se". (Importância da ligação).</div>
+    </div>
+
+    <!-- NÍVEL 4: ALINHAMENTO -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-align-center"></i> Nível 4: Alinhamento (31-40)</div>
+        <p style="font-size: 0.9rem;"><em>Usa uma grelha 2x2. Dá altura ao pai (500px).</em></p>
+
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">31</span> Alinha todos os itens verticalmente ao centro: <code>align-items: center</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">32</span> Alinha todos os itens horizontalmente à direita: <code>justify-items: end</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">33</span> Centra tudo dentro das células: <code>place-items: center</code> (Atalho para align + justify).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">34</span> No Item 1 individualmente, usa <code>align-self: start</code> (Sobe ao topo).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">35</span> No Item 2, usa <code>justify-self: center</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">36</span> Alinha a GRELHA inteira no centro do pai: <code>justify-content: center</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">37</span> Espalha as colunas da grelha: <code>justify-content: space-between</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">38</span> Espalha as linhas da grelha: <code>align-content: space-between</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">39</span> Centra a grelha perfeitamente no meio do pai (X e Y) usando <code>place-content: center</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">40</span> Estica os itens para preencherem a célula (padrão): <code>stretch</code>.</div>
+    </div>
+
+    <!-- NÍVEL 5: FUNÇÕES AVANÇADAS -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-magic"></i> Nível 5: A Magia da Responsividade (41-50)</div>
+        
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">41</span> Usa <code>minmax(100px, 1fr)</code>. Encolhe o browser. A coluna nunca fica menor que 100px?</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">42</span> Galeria Automática: <code>repeat(auto-fit, minmax(150px, 1fr))</code>. Redimensiona a janela.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">43</span> O que acontece se trocares <code>auto-fit</code> por <code>auto-fill</code>? (Vê-se melhor com poucos itens).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">44</span> Cria uma grelha densa: <code>grid-auto-flow: dense</code>. (Muda a ordem para preencher buracos).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">45</span> Faz a grelha adicionar novas linhas automaticamente se precisares: <code>grid-auto-rows: 100px</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">46</span> Ordem visual: Usa <code>order: 1</code> num item para o enviar para o fim da grelha.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">47</span> Sobreposição Criativa: Cria uma grelha 1x1. Mete todos os itens em <code>grid-area: 1/1</code>. Tens uma "pilha" de cartões.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">48</span> Layout 12 Colunas (Bootstrap style): <code>repeat(12, 1fr)</code>. Item 1 span 4, Item 2 span 8.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">49</span> <strong>Desafio Galeria Masonry (Falso):</strong> Tenta fazer colunas de alturas diferentes encaixarem. (Grid não faz isso nativamente bem, mas tenta!).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">50</span> <strong>Layout Final:</strong> Cria um layout completo (Header, Sidebar, Main, Footer) que seja responsivo sem usar uma única Media Query (usando minmax e auto-fit).</div>
+    </div>
+
+</body>
+</html>
