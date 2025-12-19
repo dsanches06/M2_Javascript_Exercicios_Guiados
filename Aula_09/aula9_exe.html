@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <!-- TAREFA 1: Adicionar a Meta Tag Viewport aqui -->
+    <title>Ginásio RWD & JS: 50 Exercícios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #be185d; --bg: #fdf2f8; --text: #831843; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 40px; max-width: 1000px; margin: 0 auto; }
+        
+        h1 { text-align: center; color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 10px; }
+        .intro { background: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; border-left: 5px solid var(--primary); }
+        
+        /* ELEMENTOS DE TESTE */
+        .box {
+            background-color: #fbcfe8;
+            border: 2px solid #be185d;
+            padding: 20px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .hidden { display: none; }
+        
+        /* Grelha para testes de responsividade */
+        .grid-test {
+            display: flex;
+            flex-direction: column; /* Mobile First: Coluna por defeito */
+            gap: 10px;
+        }
+        .grid-item { background: #db2777; color: white; padding: 15px; }
+
+        .task-group { background: white; padding: 20px; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .group-title { font-size: 1.3rem; font-weight: bold; color: var(--primary); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        
+        .task { display: flex; gap: 10px; margin-bottom: 8px; align-items: baseline; font-size: 0.95rem; border-bottom: 1px solid #fce7f3; padding-bottom: 5px; }
+        .num { font-weight: bold; color: var(--primary); min-width: 25px; }
+        code { background: #fce7f3; color: #be185d; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-weight: bold; }
+        .checkbox { cursor: pointer; transform: scale(1.2); accent-color: var(--primary); }
+
+        /* Classe para teste de JS */
+        .ativo { background-color: #000 !important; color: #fff !important; transform: scale(1.1); }
+    </style>
+</head>
+<body>
+
+    <h1><i class="fa-solid fa-mobile-screen"></i> 50 Exercícios RWD & JS</h1>
+    
+    <div class="intro">
+        <p><strong>Instruções:</strong></p>
+        <ol>
+            <li>Cria um ficheiro <code>rwd.html</code> e liga um <code>style.css</code>.</li>
+            <li>Para os exercícios de JS, podes escrever dentro de uma tag <code>&lt;script&gt;</code> no final do body.</li>
+            <li>Usa as ferramentas de programador (F12) para simular um telemóvel!</li>
+        </ol>
+    </div>
+
+    <!-- NÍVEL 1: VIEWPORT E MEDIA QUERIES -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-compress"></i> Nível 1: Setup e Media Queries (1-10)</div>
+        
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">1</span> Adiciona a meta tag <code>viewport</code> no <code>head</code>. Sem isto, nada funciona em mobile!</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">2</span> No CSS, pinta o <code>body</code> de vermelho por defeito.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">3</span> Cria uma Media Query: <code>@media (min-width: 600px)</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">4</span> Dentro da query, muda a cor do body para azul. (Estica a janela > 600px para ver a magia).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">5</span> Cria outra query para <code>min-width: 1000px</code> (Desktop) e pinta de verde.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">6</span> Cria uma <code>div.caixa</code>. Por defeito <code>width: 100%</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">7</span> Em ecrãs > 600px, a caixa deve ter <code>width: 50%</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">8</span> Esconde um elemento (<code>display: none</code>) apenas em telemóvel (abaixo de 600px). Dica: usa <code>max-width</code> ou lógica inversa Mobile First.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">9</span> Muda o tamanho da fonte (<code>font-size</code>) do h1: 20px em mobile, 40px em desktop.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">10</span> Tenta usar <code>@media (orientation: landscape)</code> para mudar a cor apenas quando viras o telemóvel.</div>
+    </div>
+
+    <!-- NÍVEL 2: MOBILE FIRST LAYOUT -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-layer-group"></i> Nível 2: Layouts Responsivos (11-20)</div>
+        <p style="font-size: 0.9rem;"><em>Usa um contentor flex com 3 itens para estes testes.</em></p>
+
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">11</span> <strong>Mobile First:</strong> Define o contentor como <code>flex-direction: column</code> (padrão fora das queries).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">12</span> No breakpoint 768px (Tablet), muda para <code>flex-direction: row</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">13</span> No Tablet, define que os itens ocupam 33% cada (<code>flex: 1</code>).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">14</span> Adiciona <code>gap: 10px</code> em mobile e <code>gap: 30px</code> em desktop.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">15</span> Inverte a ordem apenas em mobile: <code>flex-direction: column-reverse</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">16</span> Cria um layout de grelha (Grid) com 1 coluna em mobile.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">17</span> Passa para 2 colunas em Tablet (<code>repeat(2, 1fr)</code>).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">18</span> Passa para 4 colunas em Desktop.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">19</span> Faz com que uma imagem tenha <code>width: 100%</code> em mobile e tamanho fixo em desktop.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">20</span> Oculta o menu lateral (Sidebar) em mobile e mostra em desktop.</div>
+    </div>
+
+    <!-- NÍVEL 3: JS - SELEÇÃO E ESTILO -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-brands fa-js"></i> Nível 3: JS - Seleção e Estilo (21-30)</div>
+        <p style="font-size: 0.9rem;"><em>Adiciona um <code>&lt;div id="minhaCaixa" class="box"&gt;Olá&lt;/div&gt;</code> e um botão.</em></p>
+
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">21</span> No script, seleciona a caixa pelo ID: <code>const el = document.getElementById('minhaCaixa');</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">22</span> Mostra o elemento na consola: <code>console.log(el);</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">23</span> Muda a cor de fundo via JS: <code>el.style.backgroundColor = "blue";</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">24</span> Muda o texto interior: <code>el.innerText = "Sou JavaScript!";</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">25</span> Esconde o elemento via JS (<code>display: none</code>).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">26</span> Seleciona um botão usando <code>document.querySelector('button')</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">27</span> Usa <code>innerHTML</code> para colocar texto <strong>negrito</strong> dentro da caixa.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">28</span> Altera o tamanho da fonte para <code>50px</code> via JS.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">29</span> Adiciona uma borda preta de 10px via JS.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">30</span> (Debug) Tenta selecionar um ID que não existe e vê o que aparece na consola (null).</div>
+    </div>
+
+    <!-- NÍVEL 4: JS - EVENTOS E CLASSES -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-arrow-pointer"></i> Nível 4: JS - Eventos (31-40)</div>
+        
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">31</span> Adiciona um "ouvinte" ao botão: <code>btn.addEventListener('click', funcao);</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">32</span> Faz com que, ao clicar, apareça um <code>alert("Clicaste!");</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">33</span> Cria uma classe CSS <code>.escuro { background: black; color: white; }</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">34</span> Ao clicar no botão, adiciona essa classe à caixa: <code>el.classList.add('escuro')</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">35</span> Ao clicar outra vez, remove a classe: <code>el.classList.remove('escuro')</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">36</span> Usa <code>classList.toggle('escuro')</code> para ligar/desligar automaticamente.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">37</span> Usa o evento <code>mouseover</code> na caixa para mudar a cor quando o rato passa por cima.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">38</span> Usa o evento <code>mouseout</code> para repor a cor original.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">39</span> Cria um input de texto. Usa o evento <code>keydown</code> para fazer <code>console.log</code> do que escreves.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">40</span> Cria um contador: uma variável que aumenta +1 a cada clique e mostra o número na caixa.</div>
+    </div>
+
+    <!-- NÍVEL 5: DESAFIOS FINAIS -->
+    <div class="task-group">
+        <div class="group-title"><i class="fa-solid fa-bars"></i> Nível 5: Menu Hambúrguer (41-50)</div>
+        
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">41</span> Cria um <code>nav</code> com uma lista de links (menu).</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">42</span> Cria um botão com um ícone de hambúrguer (ou texto "Menu").</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">43</span> CSS Mobile: Esconde a lista <code>ul</code> com <code>display: none</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">44</span> CSS Desktop: Mostra a lista (<code>display: flex</code>) e esconde o botão hambúrguer.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">45</span> CSS Classe "Ativa": Cria <code>.nav-aberta { display: block; }</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">46</span> JS: Seleciona o botão e a lista.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">47</span> JS: No click do botão, faz <code>lista.classList.toggle('nav-aberta')</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">48</span> Testa! Em mobile o botão deve abrir/fechar o menu. Em desktop o menu deve estar sempre visível.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">49</span> <strong>Scroll:</strong> Adiciona um evento <code>window.addEventListener('scroll', ...)</code>.</div>
+        <div class="task"><input type="checkbox" class="checkbox"><span class="num">50</span> Se o scroll for maior que 100px, adiciona uma classe ao Header para mudar a cor de fundo (Efeito sticky menu).</div>
+    </div>
+
+</body>
+</html>
